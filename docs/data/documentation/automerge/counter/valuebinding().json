@@ -19,6 +19,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
+    "extendedModule" : "Automerge",
     "externalID" : "s:9Automerge7CounterC12valueBinding7SwiftUI0D0VySiGyF",
     "fragments" : [
       {

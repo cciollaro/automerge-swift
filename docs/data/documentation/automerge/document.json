@@ -297,6 +297,7 @@
     {
       "identifiers" : [
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/spliceText(obj:start:delete:value:)",
+        "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/updateText(obj:value:)",
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/mark(obj:start:end:expand:name:value:)"
       ],
       "title" : "Updating Text values"
@@ -4896,6 +4897,76 @@
   "title" : "transferRepresentation",
   "type" : "topic",
   "url" : "\/documentation\/automerge\/document\/transferrepresentation"
+},
+"doc://com.github.automerge.automerge-swift/documentation/Automerge/Document/updateText(obj:value:)": {
+  "abstract" : [
+    {
+      "text" : "Updates the text object with the value you specify.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "updateText"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "obj"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Automerge5ObjIdV",
+      "text" : "ObjId"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "value"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/updateText(obj:value:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "updateText(obj:value:)",
+  "type" : "topic",
+  "url" : "\/documentation\/automerge\/document\/updatetext(obj:value:)"
 },
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Document/values(obj:)": {
   "abstract" : [

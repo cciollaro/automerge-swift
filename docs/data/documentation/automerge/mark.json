@@ -179,13 +179,13 @@
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Mark\/end",
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Mark\/value"
       ],
-      "title" : "Creating a new Mark"
+      "title" : "Inspecting a Mark"
     },
     {
       "identifiers" : [
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Mark\/init(start:end:name:value:)"
       ],
-      "title" : "Initializers"
+      "title" : "Creating a Mark"
     },
     {
       "generated" : true,
@@ -391,7 +391,7 @@
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Mark/end": {
   "abstract" : [
     {
-      "text" : "The utf-8 codepoint index of the end of the mark",
+      "text" : "The distance from the start of the string in unicode scalars where the function ends the mark.",
       "type" : "text"
     }
   ],
@@ -427,7 +427,10 @@
 },
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Mark/init(start:end:name:value:)": {
   "abstract" : [
-
+    {
+      "text" : "Creates a new mark.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -517,7 +520,7 @@
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Mark/name": {
   "abstract" : [
     {
-      "text" : "The name of the mark",
+      "text" : "The name of the mark.",
       "type" : "text"
     }
   ],
@@ -554,7 +557,7 @@
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Mark/start": {
   "abstract" : [
     {
-      "text" : "The utf-8 codepoint index of the start of the mark",
+      "text" : "The distance from the start of the string in unicode scalars where the function starts the mark.",
       "type" : "text"
     }
   ],
@@ -591,7 +594,7 @@
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/Mark/value": {
   "abstract" : [
     {
-      "text" : "The value associated with the mark",
+      "text" : "The value associated with the mark.",
       "type" : "text"
     }
   ],

@@ -247,7 +247,15 @@
             {
               "inlineContent" : [
                 {
-                  "text" : "The index position, in UTF-8 code points, where the function begins inserting or deleting.",
+                  "text" : "The distance from the start of the string in unicode scalars where the function begins inserting or",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "deleting.",
                   "type" : "text"
                 }
               ],
@@ -261,7 +269,7 @@
             {
               "inlineContent" : [
                 {
-                  "text" : "The number of UTF-8 code points to delete from the ",
+                  "text" : "The number of unicode scalars to delete from the ",
                   "type" : "text"
                 },
                 {
@@ -353,7 +361,7 @@
               "type" : "codeVoice"
             },
             {
-              "text" : " parameters represent UTF-8",
+              "text" : " parameters represent integer distances of unicode scalars of the",
               "type" : "text"
             },
             {
@@ -361,23 +369,7 @@
               "type" : "text"
             },
             {
-              "text" : "code point indexes. Swift string indexes represent grapheme clusters, but Automerge works",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "in terms of UTF-8 code points. This means if you receive indices from other parts",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "of the application which are swift string indices you need to convert them.",
+              "text" : "Swift strings, not the counts of Characters (or grapheme clusters).",
               "type" : "text"
             }
           ],
@@ -386,31 +378,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "It can be convenient to access the ",
-              "type" : "text"
-            },
-            {
-              "code" : "UTF8View",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " of the String through it’s ",
-              "type" : "text"
-            },
-            {
-              "code" : "utf8",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " property,",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "or if you have a ",
+              "text" : "If you use or receive a Swift ",
               "type" : "text"
             },
             {
@@ -418,7 +386,7 @@
               "type" : "codeVoice"
             },
             {
-              "text" : " type,  you can convert that into a",
+              "text" : " convert it to an index position usable by Automerge through",
               "type" : "text"
             },
             {
@@ -426,19 +394,19 @@
               "type" : "text"
             },
             {
-              "code" : "String.UTF8View.Index",
+              "code" : "UnicodeScalarView",
               "type" : "codeVoice"
             },
             {
-              "text" : " position using ",
+              "text" : ", accessible through the ",
               "type" : "text"
             },
             {
-              "code" : "samePosition",
+              "code" : "unicodeScalars",
               "type" : "codeVoice"
             },
             {
-              "text" : " on the index with",
+              "text" : " property on the string.",
               "type" : "text"
             },
             {
@@ -446,19 +414,109 @@
               "type" : "text"
             },
             {
-              "text" : "a reference to the UTF-8 view of the string through its ",
+              "text" : "To determine Automerge index position from a ",
               "type" : "text"
             },
             {
-              "code" : "utf8",
+              "code" : "String.Index",
               "type" : "codeVoice"
             },
             {
-              "text" : " property.",
+              "text" : ", convert the index position into a",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "String.UnicodeScalarView.Index",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " and calculate the distance from the ",
+              "type" : "text"
+            },
+            {
+              "code" : "startIndex",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " value.",
               "type" : "text"
             }
           ],
           "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "An example of deriving the automerge start position from a Swift string’s index:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "extension String {",
+            "   @inlinable func automergeIndexPosition(index: String.Index) -> UInt64? {",
+            "       guard let unicodeScalarIndex = index.samePosition(in: self.unicodeScalars) else {",
+            "           return nil",
+            "       }",
+            "       let intPositionInUnicodeScalar = self.unicodeScalars.distance(",
+            "           from: self.unicodeScalars.startIndex,",
+            "           to: unicodeScalarIndex)",
+            "       return UInt64(intPositionInUnicodeScalar)",
+            "   }",
+            "}"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "For the length of index updates in Automerge, use the count of the string’s ",
+              "type" : "text"
+            },
+            {
+              "code" : "UnicodeScalarView",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", converted to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "Int64",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "For example:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "Int64(\"🇬🇧\".unicodeScalars.count)"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
         }
       ],
       "kind" : "content"
@@ -476,6 +534,7 @@
     {
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/updateText(obj:value:)",
         "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/mark(obj:start:end:expand:name:value:)"
       ],
       "title" : "Updating Text values"
@@ -784,6 +843,76 @@
   "title" : "spliceText(obj:start:delete:value:)",
   "type" : "topic",
   "url" : "\/documentation\/automerge\/document\/splicetext(obj:start:delete:value:)"
+},
+"doc://com.github.automerge.automerge-swift/documentation/Automerge/Document/updateText(obj:value:)": {
+  "abstract" : [
+    {
+      "text" : "Updates the text object with the value you specify.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "updateText"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "obj"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Automerge5ObjIdV",
+      "text" : "ObjId"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "value"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/com.github.automerge.automerge-swift\/documentation\/Automerge\/Document\/updateText(obj:value:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "updateText(obj:value:)",
+  "type" : "topic",
+  "url" : "\/documentation\/automerge\/document\/updatetext(obj:value:)"
 },
 "doc://com.github.automerge.automerge-swift/documentation/Automerge/ObjId": {
   "abstract" : [

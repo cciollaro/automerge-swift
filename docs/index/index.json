@@ -374,6 +374,11 @@
                 "type" : "method"
               },
               {
+                "path" : "\/documentation\/automerge\/document\/updatetext(obj:value:)",
+                "title" : "func updateText(obj: ObjId, value: String) throws",
+                "type" : "method"
+              },
+              {
                 "path" : "\/documentation\/automerge\/document\/mark(obj:start:end:expand:name:value:)",
                 "title" : "func mark(obj: ObjId, start: UInt64, end: UInt64, expand: ExpandMark, name: String, value: ScalarValue) throws",
                 "type" : "method"
@@ -1435,7 +1440,7 @@
           {
             "children" : [
               {
-                "title" : "Creating a new Mark",
+                "title" : "Inspecting a Mark",
                 "type" : "groupMarker"
               },
               {
@@ -1459,7 +1464,7 @@
                 "type" : "property"
               },
               {
-                "title" : "Initializers",
+                "title" : "Creating a Mark",
                 "type" : "groupMarker"
               },
               {
@@ -2299,7 +2304,7 @@
                   {
                     "children" : [
                       {
-                        "title" : "Creating a new Mark",
+                        "title" : "Inspecting a Mark",
                         "type" : "groupMarker"
                       },
                       {
@@ -2323,7 +2328,7 @@
                         "type" : "property"
                       },
                       {
-                        "title" : "Initializers",
+                        "title" : "Creating a Mark",
                         "type" : "groupMarker"
                       },
                       {
@@ -2662,7 +2667,7 @@
               {
                 "children" : [
                   {
-                    "title" : "Creating a new Mark",
+                    "title" : "Inspecting a Mark",
                     "type" : "groupMarker"
                   },
                   {
@@ -2686,7 +2691,7 @@
                     "type" : "property"
                   },
                   {
-                    "title" : "Initializers",
+                    "title" : "Creating a Mark",
                     "type" : "groupMarker"
                   },
                   {
@@ -4250,6 +4255,11 @@
                 "type" : "method"
               },
               {
+                "path" : "\/documentation\/automergeuniffi\/doc\/updatetext(obj:chars:)",
+                "title" : "func updateText(obj: ObjId, chars: String) throws",
+                "type" : "method"
+              },
+              {
                 "path" : "\/documentation\/automergeuniffi\/doc\/values(obj:)",
                 "title" : "func values(obj: ObjId) throws -> [Value]",
                 "type" : "method"
@@ -4595,6 +4605,11 @@
               {
                 "path" : "\/documentation\/automergeuniffi\/docprotocol\/textat(obj:heads:)",
                 "title" : "func textAt(obj: ObjId, heads: [ChangeHash]) throws -> String",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/automergeuniffi\/docprotocol\/updatetext(obj:chars:)",
+                "title" : "func updateText(obj: ObjId, chars: String) throws",
                 "type" : "method"
               },
               {
